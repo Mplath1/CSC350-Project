@@ -1,0 +1,30 @@
+header{
+	background-color: #F1F1F1;
+	text-align: center;
+	padding: 20px;
+}
+
+nav{
+
+}
+
+nav li{
+	display:inline-block;
+	font-size: 20px;
+	padding:20 px;
+}
+
+
+aside{
+	border: 3px;
+	border-color:Tomato;
+	float:left;
+	padding: 20px;
+}
+
+article{
+
+}
+
+footer{
+}
