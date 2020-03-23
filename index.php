@@ -3,6 +3,7 @@
 <title>Index</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <!--include javascript externals here-->
+<script src="scripts.js"></script>
 </head>
 <body>
 <?php include 'header.php';?>
@@ -18,8 +19,10 @@
 	<ul>
 		<li><p>Option 1 (Dropdown or check box)</p></li>
 		<li><p>Option 2 (Dropdown or check box)</p></li>
-		<li><label for="priceslider">Max.Price</label><input type="range" name="priceslider" id="priceslider" min="0" max="500" value="50">
-		<br><p>$<span id="price"></span></p></li>
+		<li><label for="priceslider">Max.Price</label>
+		<input type="range" name="priceslider" id="priceslider" min="0" max="500" value="50">
+		<br><p>$<span id="currentprice"></span></p></li>
+		<script src="scripts.js"></script>
 	</ul>
 	<input type="submit" value="Search">
 	<form>

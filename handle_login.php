@@ -13,7 +13,6 @@ if(!empty($username)){
 		$result = mysqli_query($dbc,$query);
 	
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		echo $row['username'];
 		//if( $r rows_affected < 1){$msg = "Username not found!";};
 		if($row['password'] == sha1($password)){
 			$msg = 'Successful login of user:'.$username.'';
