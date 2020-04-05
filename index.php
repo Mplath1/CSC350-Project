@@ -1,8 +1,11 @@
+<?php 
+if(!isset($items)){$items=NULL;}
+if(!isset($result_count)){$result_count=NULL;}	
+?>
 <html>
 <head>
 <title>Index</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
-<!--include javascript externals here-->
 <script src="scripts.js"></script>
 </head>
 <body>
@@ -28,29 +31,43 @@
 	<form>
 </aside>
 <article>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Integer quis auctor elit sed vulputate mi sit. Porta non pulvinar
-neque laoreet suspendisse interdum. Nunc id cursus metus aliquam eleifend mi in nulla posuere.
-Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Interdum velit
-laoreet id donec ultrices. Parturient montes nascetur ridiculus mus mauris. Ornare aenean euismod
-elementum nisi quis eleifend. Sit amet cursus sit amet dictum sit. Purus ut faucibus pulvinar
-elementum integer enim neque volutpat ac. Sit amet est placerat in egestas. Arcu felis bibendum
-ut tristique et egestas quis. Ut diam quam nulla porttitor massa id.<br>Sed libero enim sed faucibus
-turpis in eu. Quis auctor elit sed vulputate mi sit. Quam vulputate dignissim suspendisse in est
-ante in. Nam at lectus urna duis. Ut porttitor leo a diam sollicitudin tempor. Adipiscing diam
-donec adipiscing tristique risus nec feugiat. Urna nec tincidunt praesent semper feugiat. Quisque
-egestas diam in arcu cursus euismod quis viverra nibh. Nisl pretium fusce id velit ut tortor.
-Porttitor rhoncus dolor purus non enim praesent elementum. Malesuada pellentesque elit eget gravida
-cum sociis natoque.<br>Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Purus in
-mollis nunc sed id semper. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut
-placerat. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Sed vulputate mi sit amet
-mauris commodo. Nec ullamcorper sit amet risus nullam. Aenean euismod elementum nisi quis eleifend
-quam. Morbi non arcu risus quis varius quam quisque. Est velit egestas dui id ornare arcu odio ut
-sem. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Nibh tortor id
-aliquet lectus proin nibh nisl condimentum id. In hendrerit gravida rutrum quisque non tellus orci.
-Vehicula ipsum a arcu cursus. Amet risus nullam eget felis eget nunc lobortis. Enim nunc faucibus
-a pellentesque. Dignissim convallis aenean et tortor. Imperdiet proin fermentum leo vel orci porta
-non pulvinar neque.</p>
+	<?php if (empty($items)):?>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+		labore et dolore magna aliqua. Integer quis auctor elit sed vulputate mi sit. Porta non pulvinar
+		neque laoreet suspendisse interdum. Nunc id cursus metus aliquam eleifend mi in nulla posuere.
+		Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Interdum velit
+		laoreet id donec ultrices. Parturient montes nascetur ridiculus mus mauris. Ornare aenean euismod
+		elementum nisi quis eleifend. Sit amet cursus sit amet dictum sit. Purus ut faucibus pulvinar
+		elementum integer enim neque volutpat ac. Sit amet est placerat in egestas. Arcu felis bibendum
+		ut tristique et egestas quis. Ut diam quam nulla porttitor massa id.<br>Sed libero enim sed faucibus
+		turpis in eu. Quis auctor elit sed vulputate mi sit. Quam vulputate dignissim suspendisse in est
+		ante in. Nam at lectus urna duis. Ut porttitor leo a diam sollicitudin tempor. Adipiscing diam
+		donec adipiscing tristique risus nec feugiat. Urna nec tincidunt praesent semper feugiat. Quisque
+		egestas diam in arcu cursus euismod quis viverra nibh. Nisl pretium fusce id velit ut tortor.
+		Porttitor rhoncus dolor purus non enim praesent elementum. Malesuada pellentesque elit eget gravida
+		cum sociis natoque.<br>Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Purus in
+		mollis nunc sed id semper. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut
+		placerat. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Sed vulputate mi sit amet
+		mauris commodo. Nec ullamcorper sit amet risus nullam. Aenean euismod elementum nisi quis eleifend
+		quam. Morbi non arcu risus quis varius quam quisque. Est velit egestas dui id ornare arcu odio ut
+		sem. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Nibh tortor id
+		aliquet lectus proin nibh nisl condimentum id. In hendrerit gravida rutrum quisque non tellus orci.
+		Vehicula ipsum a arcu cursus. Amet risus nullam eget felis eget nunc lobortis. Enim nunc faucibus
+		a pellentesque. Dignissim convallis aenean et tortor. Imperdiet proin fermentum leo vel orci porta
+		non pulvinar neque.</p>
+	<?php else: ?>
+		<ul>
+			<p>Items Found:<?=$result_count;?></p>
+			<?php foreach($items as $item): ?>
+				<li>
+				<!--use CSS flex formatting here to create squares-->
+					<h1><?=$item['name'];?></h1>
+					<h2><?=$item['price'];?></h2>
+					<p><?=$item['description'];?><br></p>
+				</li>
+			<?php endforeach;?>
+		</ul>
+	<?php endif;?>
 </article>
 </body>
 <footer>
