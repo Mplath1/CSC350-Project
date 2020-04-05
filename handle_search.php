@@ -2,7 +2,12 @@
 
 $price = $_REQUEST['priceslider'];
 
-$dbc  = @mysqli_connect('localhost','devgroup','granfalloon','csc350project') OR //function to connect 
+$host = "localhost";
+$user = "devgroup";
+$database_password = "granfalloon";
+$database_name = "csc350project";
+
+$dbc  = @mysqli_connect($host,$user,$database_password,$database_name) OR //function to connect 
 		die("Unable to connect to MYSQL server:".mysqli_connect_error());
 
 		$query = "SELECT * from items WHERE price<=".$price."";
