@@ -57,10 +57,11 @@ if(!isset($result_count)){$result_count=NULL;}
 		non pulvinar neque.</p>
 	<?php else: ?>
 		<ul>
-			<p>Items Found:<?=$result_count;?></p>
+			<p>Items Found: <?=$result_count;?></p>
 			<?php foreach($items as $item): ?>
 				<li>
 				<!--use CSS flex formatting here to create squares-->
+					<img src="<?=$item['image'];?>"/>
 					<h1><?=$item['name'];?></h1>
 					<h2><?=$item['price'];?></h2>
 					<p><?=$item['description'];?><br></p>
