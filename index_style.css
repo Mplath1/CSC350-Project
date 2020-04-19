@@ -35,6 +35,37 @@
 	border-width: 0;
 }
 
+.selection-window {
+
+}
+
+.items{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-evenly;
+}
+
+.item-card{
+	padding:5%;
+	flex-grow:0;
+	flex-shrink:0;
+	/*flex-basis:16%;*/
+	flex:1 1 auto;
+	display:flex;
+}
+
+.item-image{
+	max-width: 25%;
+}
+
+.item-info{
+	margin-top: auto;
+	padding:5%;
+	border:3px solid red;
+
+}
+
+
 nav{
 
 }
@@ -48,9 +79,9 @@ nav li{
 
 aside{
 	border: 3px;
-	border-color:Tomato;
 	float:left;
 	padding: 20px;
+	min-height:100%;
 }
 
 article{
