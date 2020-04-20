@@ -46,16 +46,18 @@
 }
 
 .item-card{
-	padding:5%;
+	padding:2%;
 	flex-grow:0;
 	flex-shrink:0;
-	/*flex-basis:16%;*/
+	flex-basis:16%;
 	flex:1 1 auto;
 	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .item-image{
-	max-width: 25%;
+
 }
 
 .item-info{
