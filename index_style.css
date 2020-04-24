@@ -3,20 +3,36 @@
 	text-align: left;
 	border-bottom: 4px solid #000000;
 	display: flex;
-	align-items: flex-start;
+	align-items: flex-end;
 	height: 60px;
 	width: 100%;
 	margin: 0;
 	padding: 0;
 }
-
 #header > #logo {
 	height: auto;
 	width: auto;
-	margin: 0 30px 0 0;
+	margin: 0 0 -4px;
 	padding: 0;
 }
-#header > a {
+#header > #headerLogin {
+	margin: 0 0 0 auto;
+	display: flex;
+	align-items: flex-end;
+}
+#header > #headerLogin > p {
+	color: white;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+#header > #headerLogin > a {
+	margin: 0 6px 10px 0 !important;
+}
+#header > #headerLogin > a:hover {
+	margin-right: 10px !important;
+}
+#header > a,
+#header > #headerLogin > a {
 	color: #e50300;
 	background-color: white;
 	text-decoration: none;
@@ -24,15 +40,14 @@
 	text-shadow: -1px 1px 1px #000000;
 	border-left: 4px solid #000000;
 	border-bottom: 4px solid #000000;
-	display: inline-block;
-	margin: 8px 32px 12px;
-	padding: 0 4px;
+	margin: 0 0 10px 64px;
+	padding: 0 6px;
 }
-#header > a:hover {
-	text-shadow: -1px 1px 1px white;
+#header > a:hover,
+#header > #headerLogin > a:hover {
+	text-shadow: none;
 	border: none;
-	margin: 12px 36px 12px 32px;
-	border-width: 0;
+	margin-right: 4px;
 }
 
 .selection-window {
