@@ -9,12 +9,14 @@
 	margin: 0;
 	padding: 0;
 }
+
 #header > #logo {
 	height: auto;
 	width: auto;
 	margin: 0 0 -4px;
 	padding: 0;
 }
+
 #header > #headerLogin {
 	margin: 0 0 0 auto;
 	display: flex;
@@ -43,6 +45,7 @@
 	margin: 0 0 10px 64px;
 	padding: 0 6px;
 }
+
 #header > a:hover,
 #header > #headerLogin > a:hover {
 	text-shadow: none;

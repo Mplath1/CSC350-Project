@@ -1,13 +1,13 @@
 <?php
 
-
+require 'database_connection.php';
 
 $items = get_items();
 $result_count = mysqli_num_rows($items);
 include('index.php');
 
 
-function connect_to_database(){
+/*function connect_to_database(){
 
 	$host = "localhost";
 	$user = "devgroup";
@@ -17,7 +17,7 @@ function connect_to_database(){
 	$dbc  = @mysqli_connect($host,$user,$database_password,$database_name) OR //function to connect
 		die("Unable to connect to MYSQL server:".mysqli_connect_error());
 		return $dbc;
-}
+}*/
 
 function query_items($dbc,$price){
 
