@@ -1,9 +1,11 @@
 <?php
+if (!isset($_SESSION)) session_start();
 
 require 'database_connection.php';
 
 $username = filter_var($_REQUEST['username'],FILTER_SANITIZE_STRING);
 $password = filter_var($_REQUEST['password'],FILTER_SANITIZE_STRING);
+
 $msg = "";
 
 
@@ -23,19 +25,25 @@ $msg = "";
 
 
 function select_user($dbc,$username,$password,$msg){
-	$query = "SELECT * from users WHERE username='".$username."'";
-		$result = mysqli_query($dbc,$query);
+	$query = "SELECT username, password from users WHERE username=?";
+	$stmt = mysqli_prepare($dbc, $query);
+	mysqli_stmt_bind_param($stmt, 's', $username);
+	mysqli_stmt_execute($stmt);
 
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		//if( $r rows_affected < 1){$msg = "Username not found!";};
-		if($row['password'] == sha1($password)){
-			$msg = 'Successful login of user:'.$username.'';
-			header("Location: index.php"); //transfers page to index. need to store username for unique privledges here
-			exit;
-		}else{
-			 $msg = "Incorrect Password! ";
-			 return $msg;
-		}
+	mysqli_stmt_bind_result($stmt, $stmtUsername, $stmtPassword);
+
+	$row = mysqli_stmt_fetch($stmt);
+	if($stmtPassword == sha1($password)){
+		mysqli_stmt_close($stmt);
+		$_SESSION['LoggedInUsername'] = $username;
+		$msg = 'Successful login of user:'.$username.'';
+		header("Location: index.php"); //transfers page to index. need to store username for unique privledges here
+		exit;
+	}else{
+		mysqli_stmt_close($stmt);
+		$msg = "Incorrect Password! ";
+		return $msg;
+	}
 }
 
 if(!empty($username)){

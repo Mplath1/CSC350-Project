@@ -1,4 +1,8 @@
-<?php if(!isset($msg)){$msg="";}?>
+<?php
+if (!isset($_SESSION)) session_start();
+
+if(!isset($msg)){$msg="";}
+?>
 <html>
 <head>
 <title>Login</title>
