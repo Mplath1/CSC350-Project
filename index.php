@@ -64,7 +64,8 @@ if(!isset($result_count)){$result_count=NULL;}
 				<?php foreach($items as $item):?>
 					<div class="item-card">
 						<div class="item-image">
-							<img src="<?=$item['image']?>" alt="<?=$item['name'].' Image';?>"/>
+							<!--changed image to invader_B.png for testing purposes-->
+							<img src="img\invader_B.png" alt="<?=$item['name'].' Image';?>"/>
 						</div>
 						<div class="item-info">
 							<h1><?=$item['name'];?></h1>

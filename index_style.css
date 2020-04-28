@@ -75,7 +75,9 @@
 }
 
 .item-image{
-
+	/*trying to get this to center above item-info and the whole this is
+	wrapped together by item-card. so an item-card contains and Image
+	and then the info underaneath it.*/
 }
 
 .item-info{
