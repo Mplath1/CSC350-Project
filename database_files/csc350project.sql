@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2020 at 12:23 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: May 04, 2020 at 09:05 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,9 +31,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `items` (
   `item_id` mediumint(8) UNSIGNED NOT NULL,
   `name` varchar(40) NOT NULL,
-  `image` varchar(50) DEFAULT 'img/default.png',
+  `imagelink` varchar(50) NOT NULL,
   `description` tinytext DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
+  `system` enum('any','dc','genesis','saturn','snes') NOT NULL,
+  `genre` enum('action','adventure','fighting','roleplaying','sports') NOT NULL,
   `registration_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,10 +43,27 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`item_id`, `name`, `image`, `description`, `price`, `registration_date`) VALUES
-(1, 'Product #1', 'img/invader_A.png', 'This is product #1. It is decribed here.', '69.99', '2020-03-22 17:26:59'),
-(2, 'Product #2', 'img/invader_C.png', 'This is product #2. It is decribed here.', '89.99', '2020-03-22 17:27:30'),
-(3, 'Product #3', 'img/invader_B.png', 'This is product #3. It is decribed here.', '49.99', '2020-03-22 17:27:54');
+INSERT INTO `items` (`item_id`, `name`, `imagelink`, `description`, `price`, `system`, `genre`, `registration_date`) VALUES
+(1, 'Earthbound', 'snes_earthbound', 'A satire of 16-bit RPG tropes and Americana.', '499.99', 'snes', 'roleplaying', '2020-03-22 17:26:59'),
+(2, 'Ikaruga', 'dc_ikaruga', 'Polarity based bullet-hell.', '89.99', 'dc', 'action', '2020-03-22 17:27:30'),
+(3, 'FIFA 96 Soccer', 'snes_fifasoccer96', '1996 edition of the FIFA Soccer series.', '49.99', 'snes', 'sports', '2020-03-22 17:27:54'),
+(4, 'Final Fantasy III', 'snes_finalfantasy3', 'Steampunk Square RPG originally sold as III but now known as VI.', '129.99', 'snes', 'roleplaying', '2020-04-14 01:43:14'),
+(5, 'WeaponLord', 'snes_weaponlord_2', 'Robert E. Howard-esque fighting game with weapons and graphic violence.', '19.99', 'snes', 'fighting', '2020-04-14 01:43:49'),
+(6, 'Street Fighter III: Third Strike', 'dc_sfiii3rdstrike_5', 'Third revision of the third Street Fighter game.', '299.99', 'dc', 'fighting', '2020-04-14 01:45:51'),
+(7, 'TMNT IV: Turtles in Time', 'snes_tmnt4turtlesintime', 'Ninja Turtles licensed beat-em\'-up through the ages.', '39.99', 'snes', 'action', '2020-04-14 01:46:38'),
+(8, 'Chrono Trigger', 'snes_chronotrigger', 'Time-traveling RPG masterpiece with multiple endings.', '139.99', 'snes', 'roleplaying', '2020-05-04 02:02:22'),
+(9, 'ChuChu Rocket!', 'dc_chuchurocket_3', 'Manic puzzle/party game for up to 4 players.', '24.99', 'dc', 'action', '2020-05-04 02:05:01'),
+(10, 'Grandia 2', 'dc_grandia2', 'Linear RPG with a unique battle system.', '69.99', 'dc', 'roleplaying', '2020-05-04 02:07:28'),
+(11, 'Soul Calibur', 'dc_soulcalibur_6', 'Fighting game in 3-D with unique characters, tons of depth, extra modes, and unlockables.', '39.99', 'dc', 'fighting', '2020-05-04 02:09:35'),
+(12, 'Virtual On: Oratorio Tangram', 'dc_virtualon_5', 'Arcade-style 1-on-1 giant robot fighting in arenas.', '99.99', 'dc', 'action', '2020-05-04 02:13:39'),
+(13, 'Radiant Silvergun', 'saturn_radiantsilvergun_jp', 'Japanese Import of highly regarded bullet-hell shooter.', '89.99', 'saturn', 'action', '2020-05-04 02:34:25'),
+(14, 'X-Men vs Street Fighter', 'saturn_xmenvsstreetfighter_jp', 'Japanese Import of Arcade Perfect fighting game mashup.', '149.99', 'saturn', 'fighting', '2020-05-04 02:37:37'),
+(15, 'Altered Beast', 'genesis_alteredbeast', 'Rise from your grave and fight the undead while transforming into the beast within.', '9.99', 'genesis', 'adventure', '2020-05-04 02:41:19'),
+(16, 'Contra: Hard Corps', 'genesis_contrahardcorps', 'Select from one of 4 unique commandos and strap in for an adrenaline pumping run-and-gun that puts ANY action movie you\'ve ever seen to shame.', '74.99', 'genesis', 'action', '2020-05-04 02:43:34'),
+(17, 'NBA Jam', 'genesis_nbajam', 'Catch fire and ball like never before in this 2-vs-2 arcade classic.', '34.99', 'genesis', 'sports', '2020-05-04 02:46:55'),
+(18, 'NHL 94', 'genesis_nhl94', 'Check players, slap shots, and bring home the Stanley Cup in the definitive hockey game of the 16-bit era.', '24.99', 'genesis', 'sports', '2020-05-04 02:49:52'),
+(19, 'Phantasy Star II', 'genesis_phantasystar2', 'Explore three planets and fight through one of the most celebrated RPGs of all time.', '19.99', 'genesis', 'roleplaying', '2020-05-04 02:51:33'),
+(20, 'ToeJam and Earl', 'genesis_toejamandearl_2', 'Help two dancing/partying aliens repair their spaceship on Earth so they can return to their home planet of Funkotron', '39.99', 'genesis', 'adventure', '2020-05-04 02:54:36');
 
 -- --------------------------------------------------------
 
@@ -66,7 +85,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `registration_date`) VALUES
 (1, 'mplath', '9e4a0e085179a3f06b0e5710887d80911ad089fc', 'mikeaplath@gmail.com', '2020-03-15 19:28:59'),
-(2, 'admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'none', '2020-04-09 16:27:25');
+(4, 'admin', '8cb2237d0679ca88db6464eac60da96345513964', 'none', '2020-04-04 21:21:26'),
+(9, 'stef', 'c8e848fb136f19347ef0e30ebca8454075207918', 'none', '2020-04-07 01:41:38'),
+(10, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'none', '2020-04-13 23:16:16');
 
 --
 -- Indexes for dumped tables
@@ -93,13 +114,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
