@@ -71,8 +71,8 @@ if(!isset($result_count)){$result_count=NULL;}
 							<h1><?=$item['name'];?></h1>
 							<h2><?=$item['price'];?></h2>
 							<p><?=$item['description'];?><br></p>
+						</div>
 					</div>
-				</div>
 				<?php endforeach;?>
 			</section>
 		<?php endif;?>

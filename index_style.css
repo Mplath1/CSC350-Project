@@ -58,6 +58,8 @@
 }
 
 .items{
+	--item-card-height: 200px;
+	--item-card-width: 300px;
 	display:flex;
 	flex-wrap:wrap;
 	justify-content:space-evenly;
@@ -74,19 +76,37 @@
 	justify-content: center;
 }
 
-.item-image{
-	/*trying to get this to center above item-info and the whole this is
-	wrapped together by item-card. so an item-card contains and Image
-	and then the info underaneath it.*/
+.item-image,
+.item-image > img {
+	position: absolute; /* so that the div won't takeup space */
+	background-color: #00FF0055;
+	height: var(--item-card-height);
+	width: var(--item-card-width);
+	z-index: -1;
 }
 
 .item-info{
+	--item-info-padding: 20px;
 	margin-top: auto;
-	padding:5%;
+	padding: var(--item-info-padding);
+	height: calc(var(--item-card-height) - 2*var(--item-info-padding));
+	width: calc(var(--item-card-width) - 2*var(--item-info-padding));
+	background-color: transparent;
 	border:3px solid red;
-
 }
 
+
+.item-info:hover {
+	background-color: #FFFFFFAA;
+}
+
+.item-info > * {
+	visibility: hidden;
+}
+
+.item-info:hover > * {
+	visibility: visible;
+}
 
 nav{
 
