@@ -22,8 +22,39 @@ if(!isset($result_count)){$result_count=NULL;}
 		<form action="handle_search.php" method="get">
 			<div class="selection-window">
 				<ul>
-					<li><p>Option 1 (Dropdown or check box)</p></li>
-					<li><p>Option 2 (Dropdown or check box)</p></li>
+					<li><label for="systemselecter">System</label>
+					<select  name="systemselecter" id="systemselecter">
+						<option value="any">ANY</option>
+						<option value="dc">DC</option>
+						<option value="genesis">Genesis</option>
+						<option value="saturn">Saturn</option>
+						<option value="snes">SNES</option>
+					</select><!--this should be autofilled from enum data in db-->
+					</li>
+					<li><label for="genreselecter">Genre</label>
+						<!--GARBAGE should be autofilled from enum data in db-->
+						<!--not yet implemented in search but it will be-->
+						<div class="genreoption">
+							<input type="checkbox" id="action" name="action" value="action">
+							<label for "action">Action</label>
+						</div>
+						<div class="genreoption">
+							<input type="checkbox" id="adventure" name="adventure" value="adventure">
+							<label for "Adventure">Adventure</label>
+						</div>
+						<div class="genreoption">
+							<input type="checkbox" id="fighting" name="fighting" value="fighting">
+							<label for "fighting">Fighting</label>
+						</div>
+						<div class="genreoption">
+							<input type="checkbox" id="roleplaying" name="roleplaying" value="roleplaying">
+							<label for "roleplaying">Role-Playing</label>
+						</div>
+						<div class="genreoption">
+							<input type="checkbox" id="sports" name="sports" value="sports">
+							<label for "sports">Sports</label>
+						</div>
+							</li>
 					<li><label for="priceslider">Max.Price</label>
 					<input type="range" name="priceslider" id="priceslider" min="0" max="500" value="50">
 					<br><p>$<span id="currentprice"></span></p></li>
@@ -60,16 +91,18 @@ if(!isset($result_count)){$result_count=NULL;}
 			non pulvinar neque.</p>
 		<?php else: ?>
 			<p>Items Found:<?=$result_count;?></p>
-			<section class="items"> <!--problem with CSS. this element has backgroundcolor Tomato-->
+			<!--consider adding button to order results by name/price/system here-->
+			<section class="items">
 				<?php foreach($items as $item):?>
 					<div class="item-card">
 						<div class="item-image">
 							<!--changed image to invader_B.png for testing purposes-->
-							<img src="img\invader_B.png" alt="<?=$item['name'].' Image';?>"/>
+							<img src="img\<?=$item['system'];?>\<?=$item['imagelink'];?>.jpg"
+							alt="<?=$item['name'].' Image';?>"/>
 						</div>
 						<div class="item-info">
 							<h1><?=$item['name'];?></h1>
-							<h2><?=$item['price'];?></h2>
+							<h2>$<?=$item['price'];?></h2>
 							<p><?=$item['description'];?><br></p>
 						</div>
 					</div>
