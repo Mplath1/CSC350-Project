@@ -1,6 +1,6 @@
 <?php
 function connect_to_database(){
-
+	
 	$host = "localhost";
 	$user = "devgroup";
 	$database_password = "granfalloon";

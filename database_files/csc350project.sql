@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 09:05 AM
+-- Generation Time: May 10, 2020 at 09:53 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `csc350project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genres`
+--
+
+CREATE TABLE `genres` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `genre_name` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `genres`
+--
+
+INSERT INTO `genres` (`id`, `genre_name`) VALUES
+(1, 'action'),
+(2, 'adventure'),
+(3, 'fighting'),
+(4, 'roleplaying'),
+(5, 'sports'),
+(6, 'racing'),
+(7, 'puzzle');
 
 -- --------------------------------------------------------
 
@@ -68,6 +92,33 @@ INSERT INTO `items` (`item_id`, `name`, `imagelink`, `description`, `price`, `sy
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `systems`
+--
+
+CREATE TABLE `systems` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `system_intials` varchar(40) NOT NULL,
+  `system_name` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `systems`
+--
+
+INSERT INTO `systems` (`id`, `system_intials`, `system_name`) VALUES
+(1, 'dc', 'Dreamcast'),
+(2, 'snes', 'Super Nintendo'),
+(3, 'saturn', 'Saturn'),
+(4, 'genesis', 'Genesis'),
+(5, 'n64', 'Nintendo 64'),
+(6, 'tg16', 'TurboGrafx-16'),
+(7, 'ps', 'Playstation'),
+(8, 'ps2', 'Playstation 2'),
+(9, 'any', 'Any');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -94,10 +145,22 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `registration_d
 --
 
 --
+-- Indexes for table `genres`
+--
+ALTER TABLE `genres`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`item_id`);
+
+--
+-- Indexes for table `systems`
+--
+ALTER TABLE `systems`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -111,10 +174,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `genres`
+--
+ALTER TABLE `genres`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `systems`
+--
+ALTER TABLE `systems`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

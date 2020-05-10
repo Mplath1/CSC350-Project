@@ -1,6 +1,16 @@
 <?php
+require_once 'database_connection.php';
+
 if(!isset($items)){$items=NULL;}
 if(!isset($result_count)){$result_count=NULL;}
+
+$dbc  = connect_to_database();
+$query = " SELECT * from systems ORDER BY system_name";
+$systems = mysqli_query($dbc,$query);
+$query = " SELECT * from genres ORDER BY genre_name";
+$genres = mysqli_query($dbc,$query);
+
+mysqli_close($dbc);
 
 ?>
 <html>
@@ -24,36 +34,18 @@ if(!isset($result_count)){$result_count=NULL;}
 				<ul>
 					<li><label for="systemselecter">System</label>
 					<select  name="systemselecter" id="systemselecter">
-						<option value="any">ANY</option>
-						<option value="dc">DC</option>
-						<option value="genesis">Genesis</option>
-						<option value="saturn">Saturn</option>
-						<option value="snes">SNES</option>
-					</select><!--this should be autofilled from enum data in db-->
+						<?php foreach($systems as $systems):?>
+							<option value="<?= $systems['system_intials']?>"><?= $systems['system_name']?></option>
+						<?php endforeach;?>
+					</select>
 					</li>
 					<li><label for="genreselecter">Genre</label>
-						<!--GARBAGE should be autofilled from enum data in db-->
-						<!--not yet implemented in search but it will be-->
+						<?php foreach($genres as $genres):?>
 						<div class="genreoption">
-							<input type="checkbox" id="action" name="action" value="action">
-							<label for "action">Action</label>
+							<input type="checkbox" id="<?= $genres['genre_name']?>" name="<?= $genres['genre_name']?>" value="<?= $genres['genre_name']?>">
+							<label for "<?= $genres['genre_name']?>"><?= $genres['genre_name']?></label>
 						</div>
-						<div class="genreoption">
-							<input type="checkbox" id="adventure" name="adventure" value="adventure">
-							<label for "Adventure">Adventure</label>
-						</div>
-						<div class="genreoption">
-							<input type="checkbox" id="fighting" name="fighting" value="fighting">
-							<label for "fighting">Fighting</label>
-						</div>
-						<div class="genreoption">
-							<input type="checkbox" id="roleplaying" name="roleplaying" value="roleplaying">
-							<label for "roleplaying">Role-Playing</label>
-						</div>
-						<div class="genreoption">
-							<input type="checkbox" id="sports" name="sports" value="sports">
-							<label for "sports">Sports</label>
-						</div>
+						<?php endforeach;?>
 							</li>
 					<li><label for="priceslider">Max.Price</label>
 					<input type="range" name="priceslider" id="priceslider" min="0" max="500" value="50">
@@ -62,7 +54,7 @@ if(!isset($result_count)){$result_count=NULL;}
 				</ul>
 					<input type="submit" value="Search">
 				</div>
-	</form>
+			</form>
 	</aside>
 	<article>
 		<?php if (empty($items)):?>
@@ -96,7 +88,6 @@ if(!isset($result_count)){$result_count=NULL;}
 				<?php foreach($items as $item):?>
 					<div class="item-card">
 						<div class="item-image">
-							<!--changed image to invader_B.png for testing purposes-->
 							<img src="img\<?=$item['system'];?>\<?=$item['imagelink'];?>.jpg"
 							alt="<?=$item['name'].' Image';?>"/>
 						</div>
