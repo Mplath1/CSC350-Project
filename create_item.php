@@ -25,11 +25,11 @@ mysqli_close($dbc);
 	<article>
 		<h1>Create Item</h1>
 		<div>
-			<form action="handle_create_item.php" method="get">
+			<form action="handle_create_item.php" method="post" enctype="multipart/form-data">
 			<div class="">
 				<ul>
 					<li>Name: <input type="text" id="itemname" name="itemname"></li>
-					<li>Image: <input type="text" id="itemimage" name="itemimage"></li>
+					<li>Image: <input type='file' name='imageFile'>
 					<li>Description: <input type="text" id="itemdescription" name="itemdescription"></li>
 					<li><label for="systemselecter">System</label>
 					<select  name="systemselecter" id="systemselecter">
