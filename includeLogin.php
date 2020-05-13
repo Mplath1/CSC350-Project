@@ -9,7 +9,7 @@ if (isset($_SESSION['LoggedInUsername']))
 }
 else
 {
-  echo "<a href=\"login.php\">Login</a>";
+  header("Location: login.php");
 }
 echo "</div>";
 ?>
