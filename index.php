@@ -34,6 +34,7 @@ mysqli_close($dbc);
 				<ul>
 					<li><label for="systemselecter">System</label>
 					<select  name="systemselecter" id="systemselecter">
+						<option value="any">Any</option>
 						<?php foreach($systems as $systems):?>
 							<option value="<?= $systems['system_intials']?>"><?= $systems['system_name']?></option>
 						<?php endforeach;?>
