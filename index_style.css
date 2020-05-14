@@ -175,8 +175,12 @@ footer {
 	padding: 16px;
 }
 
+button {
+	font-size: 24px !important;
+}
 
-input[type=submit] {
+input[type=submit],
+button {
 	color: #e50300;
 	background-color: white;
 	text-decoration: none;
@@ -189,7 +193,8 @@ input[type=submit] {
 	padding: 0 6px;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover,
+button:hover {
 	text-shadow: none;
 	border: none;
 	margin-right: 4px;
