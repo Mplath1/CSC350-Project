@@ -4,6 +4,7 @@ require_once 'database_connection.php';
 if(!isset($items)){$items=NULL;}
 if(!isset($result_count)){$result_count=NULL;}
 
+
 $dbc  = connect_to_database();
 $query = " SELECT * from systems ORDER BY system_name";
 $systems = mysqli_query($dbc,$query);
@@ -11,6 +12,7 @@ $query = " SELECT * from genres ORDER BY genre_name";
 $genres = mysqli_query($dbc,$query);
 
 mysqli_close($dbc);
+
 ?>
 <html>
 <head>
@@ -44,7 +46,7 @@ mysqli_close($dbc);
 						<?php foreach($genres as $genres):?>
 						<div class="genreoption">
 							<input type="checkbox" id="<?= $genres['genre_name']?>"
-							 name="<?= $genres['genre_name']?>"
+							 name="genre[]"
 							 value="<?= $genres['genre_name']?>">
 							<label for "<?= $genres['genre_name']?>">
 								<?= $genres['genre_name']?></label>
@@ -70,6 +72,7 @@ mysqli_close($dbc);
 				  so that you can experience them again in their original cartridge
 					(or disc) form.</h4>
 		<?php else: ?>
+			<h4><?=$search;?></h4>
 			<p>Items Found:<?=$result_count;?></p>
 			<!--consider adding button to order results by name/price/system here-->
 			<section class="items">
