@@ -30,7 +30,7 @@ mysqli_close($dbc);
 <body>
 	<?php include 'header.php';?>
 	<div style="width:100%; text-align:center;">
-	<article class="genericPanelRed" style="width: auto; margin: 64px auto; text-align:left;">
+	<article class="genericPanelRed" style="width: auto; margin: 55px auto; text-align:left;">
 		<h1>Create Item</h1>
 		<div>
 			<form action="handle_create_item.php" method="post" enctype="multipart/form-data">

@@ -27,9 +27,9 @@ mysqli_close($dbc);
 <?php include 'header.php';?>
 	<nav>
 		<ul>
-			<li><a href="www.somelink.com">Link 1</a></li>
-			<li><a href="www.somelink.com">Link 2</a></li>
-			<li><a href="www.somelink.com">Link 3</a></li>
+			<li><a href="www.somelink.com"></a></li>
+			<li><a href="www.somelink.com"></a></li>
+			<li><a href="www.somelink.com"></a></li>
 		</ul>
 	</nav>
 	<aside class="genericPanelRed">
@@ -64,7 +64,7 @@ mysqli_close($dbc);
 				</ul>
 			</div>
 			<div style="width:100%; text-align:center;">
-				<div style="display: inline-block; margin: 0 auto; text-align:left;">
+				<div style="margin: 0 auto; text-align:left;">
 					<input type="submit" value="Search">
 				</div>
 			</div>
@@ -72,14 +72,16 @@ mysqli_close($dbc);
 	</aside>
 	<article>
 		<?php if (empty($items)):?>
-			<h1>Welcome to Group One!</h1>
-			<h4>Group One is a retro gaming site dedicated to the obscure, innovative,
-				 and cult. Our inventory is carefully curated by a team of knowledgeble
-				 experts to bring you classics you may have missed the first time around
-				  so that you can experience them again in their original cartridge
-					(or disc) form.</h4>
+			<div class="genericPanelRed" style="margin-left: 24px; width: calc(100% - 400px);">
+				<h1>Welcome to Group One!</h1>
+				<h4>Group One is a retro gaming site dedicated to the obscure, innovative,
+					 and cult. Our inventory is carefully curated by a team of knowledgeble
+					 experts to bring you classics you may have missed the first time around
+					  so that you can experience them again in their original cartridge
+						(or disc) form.</h4>
+			</div>
 		<?php else: ?>
-			<p class="genericPanelRed">Items Found:<?=$result_count;?><br/><b><?=$search;?></b></p>
+			<p class="genericPanelRed" style="margin-left: 24px;">Items Found:<?=$result_count;?><br/><b><?=$search;?></b></p>
 			<!--consider adding button to order results by name/price/system here-->
 			<section class="items">
 				<?php foreach($items as $item):?>
