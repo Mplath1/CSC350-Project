@@ -37,7 +37,7 @@ mysqli_close($dbc);
 					<select  name="systemselecter" id="systemselecter">
 						<option value="any">Any</option>
 						<?php foreach($systems as $systems):?>
-							<option value="<?= $systems['system_intials']?>">
+							<option value="<?= $systems['system_intials']?>" <?php if (isset($_REQUEST['systemselecter'])) { if ($systems['system_intials'] == $_REQUEST['systemselecter']) { echo 'selected="selected"'; }} ?> >
 								<?= $systems['system_name']?></option>
 						<?php endforeach;?>
 					</select>
@@ -47,7 +47,7 @@ mysqli_close($dbc);
 						<div class="genreoption">
 							<input type="checkbox" id="<?= $genres['genre_name']?>"
 							 name="genre[]"
-							 value="<?= $genres['genre_name']?>">
+							 value="<?= $genres['genre_name']?>" <?php if (isset($_REQUEST['genre'])) { if (in_array($genres['genre_name'], $_REQUEST['genre'])) { echo 'checked="checked"'; }} ?>">
 							<label for "<?= $genres['genre_name']?>">
 								<?= $genres['genre_name']?></label>
 						</div>
@@ -55,7 +55,7 @@ mysqli_close($dbc);
 							</li>
 					<li><label for="priceslider">Max.Price</label>
 					<input type="range" name="priceslider" id="priceslider" min="0"
-					max="500" value="50">
+					max="500" value="<?php if (isset($_REQUEST['priceslider'])) { echo $_REQUEST['priceslider']; } else { echo 50; } ?>">
 					<br><p>$<span id="currentprice"></span></p></li>
 					<script src="scripts.js"></script>
 				</ul>
@@ -72,8 +72,7 @@ mysqli_close($dbc);
 				  so that you can experience them again in their original cartridge
 					(or disc) form.</h4>
 		<?php else: ?>
-			<h4><?=$search;?></h4>
-			<p>Items Found:<?=$result_count;?></p>
+			<p class="genericPanelRed">Items Found:<?=$result_count;?><br/><b><?=$search;?></b></p>
 			<!--consider adding button to order results by name/price/system here-->
 			<section class="items">
 				<?php foreach($items as $item):?>
