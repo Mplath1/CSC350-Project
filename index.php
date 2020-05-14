@@ -79,7 +79,7 @@ mysqli_close($dbc);
 				<?php foreach($items as $item):?>
 					<div class="item-card">
 						<div class="item-image">
-							<img src="img\<?=$item['system'];?>\<?=$item['imagelink'];?>.jpg"
+							<img src="img\<?=$item['system'];?>\<?=$item['imagelink'];?>"
 							 alt="<?=$item['name'].' Image';?>"/>
 						</div>
 						<div class="item-info">
