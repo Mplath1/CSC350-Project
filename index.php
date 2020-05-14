@@ -59,9 +59,13 @@ mysqli_close($dbc);
 					<br><p>$<span id="currentprice"></span></p></li>
 					<script src="scripts.js"></script>
 				</ul>
+			</div>
+			<div style="width:100%; text-align:center;">
+				<div style="display: inline-block; margin: 0 auto; text-align:left;">
 					<input type="submit" value="Search">
 				</div>
-			</form>
+			</div>
+		</form>
 	</aside>
 	<article>
 		<?php if (empty($items)):?>

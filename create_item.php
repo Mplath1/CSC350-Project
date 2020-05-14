@@ -32,7 +32,7 @@ mysqli_close($dbc);
 					<li>Name: <input type="text" id="itemname" name="itemname" value="<?php if (isset($_REQUEST['itemname'])) { echo $_REQUEST['itemname']; } ?>"></li>
 					<li>Image: <input type='file' name='imageFile'>
 					<!--<li>Description: <input type="text" id="itemdescription" name="itemdescription"></li>-->
-					<li>Description:<textarea id ="itemdescription" name="itemdescription" rows=4 cols="40" ><?php if (isset($_REQUEST['itemdescription'])) { echo $_REQUEST['itemdescription']; } ?></textarea></li>
+					<li>Description:<br/><textarea id ="itemdescription" name="itemdescription" rows=4 cols="40" ><?php if (isset($_REQUEST['itemdescription'])) { echo $_REQUEST['itemdescription']; } ?></textarea></li>
 					<li><label for="systemselecter">System</label>
 					<select  name="systemselecter" id="systemselecter">
 						<?php foreach($systems as $systems):?>
@@ -52,7 +52,11 @@ mysqli_close($dbc);
 					<br><p>$<span id="currentprice"></span></p></li>
 					<script src="scripts.js"></script>
 				</ul>
-				<input type="submit" value="Upload">
+				<div style="width:100%; text-align:center;">
+					<div style="display: inline-block; margin: 0 auto; text-align:left;">
+						<input type="submit" value="Upload">
+					</div>
+				</div>
 
 			</div>
 			</form>
