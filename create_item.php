@@ -31,7 +31,9 @@ mysqli_close($dbc);
 				<ul>
 					<li>Name: <input type="text" id="itemname" name="itemname"></li>
 					<li>Image: <input type='file' name='imageFile'>
-					<li>Description: <input type="text" id="itemdescription" name="itemdescription"></li>
+					<!--<li>Description: <input type="text" id="itemdescription" name="itemdescription"></li>-->
+					<li>Description:<textarea id ="itemdescription" name="itemdescription" rows=4 cols="40">
+					</textarea></li>
 					<li><label for="systemselecter">System</label>
 					<select  name="systemselecter" id="systemselecter">
 						<?php foreach($systems as $systems):?>
@@ -46,7 +48,7 @@ mysqli_close($dbc);
 						<?php endforeach;?>
 					</select>
 					</li>
-					<li><label for="priceslider">Max.Price</label>
+					<li><label for="priceslider">Set Price</label>
 					<input type="range" name="priceslider" id="priceslider" min="0" max="500" value="50">
 					<br><p>$<span id="currentprice"></span></p></li>
 					<script src="scripts.js"></script>
