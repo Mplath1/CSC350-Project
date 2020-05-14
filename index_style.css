@@ -195,3 +195,8 @@ input[type=submit]:hover {
 	margin-right: 4px;
 	margin-top: 4px;
 }
+
+login_page{
+	background-image: url(img/game_store.png);
+	background-color: tan;
+}
