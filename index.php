@@ -83,6 +83,10 @@ mysqli_close($dbc);
 							 alt="<?=$item['name'].' Image';?>"/>
 						</div>
 						<div class="item-info">
+							<form action="handle_delete_item.php" method="get" class="item-delete-button">
+								<input type="submit" name="select" value="X" onclick="return confirm('\tYou are about to permanently delete this item.\t\n\t\tAre you sure you wish to proceed?\t\t')"/>
+								<input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>"/>
+							</form>
 							<h1><?=$item['name'];?></h1>
 							<h2>$<?=$item['price'];?></h2>
 							<p><?=$item['description'];?><br></p>
