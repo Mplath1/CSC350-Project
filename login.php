@@ -16,6 +16,7 @@ if(!isset($msg)){$msg="";}
     form.submit();
   }
 </script>
+<center><img id="logo" src="img/Logo_GroupOne.png"/></center>
 <div class="genericPanelRed" style="width:256px; position:absolute;top:45%;left:50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
 	<h1 style="text-align: center;">Login!</h1>
 	<form id="test" action="handle_login.php" method="post">

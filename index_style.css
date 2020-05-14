@@ -83,8 +83,8 @@ body {
 }
 
 .items{
-	--item-card-height: 200px;
-	--item-card-width: 300px;
+	--item-card-height: 250px;
+	--item-card-width: 400px;
 	display:flex;
 	flex-wrap:wrap;
 	justify-content:space-evenly;

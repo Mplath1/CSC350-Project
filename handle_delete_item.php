@@ -1,6 +1,12 @@
 <?php
+if (!isset($_SESSION)) session_start();
 
 require_once 'database_connection.php';
+
+if (!isset($_SESSION['LoggedInUsername']))
+{
+	header("Location: index.php");
+}
 
 function delete_item() {
 

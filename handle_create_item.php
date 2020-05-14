@@ -49,7 +49,6 @@ function create_item($dbc) {
 					move_uploaded_file($fileTempName, 'img/' . $system . '/' . $imageName);
 
 					$query = "INSERT INTO items VALUES(NULL,'" . $name . "','" . $imageName . "','" . $description . "','" . $price . "','" . $system . "','" . "action" . "',NOW());";
-					echo $query . "<br/>";
 					$result = mysqli_query($dbc,$query);
 					if($result) {
 						echo "<script type='text/javascript'>alert('New item created!');</script>";

@@ -1,5 +1,12 @@
 <?php
+if (!isset($_SESSION)) session_start();
+
 require_once 'database_connection.php';
+
+if (!isset($_SESSION['LoggedInUsername']))
+{
+	header("Location: index.php");
+}
 
 if(!isset($items)){$items=NULL;}
 if(!isset($result_count)){$result_count=NULL;}
