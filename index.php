@@ -28,7 +28,7 @@ mysqli_close($dbc);
 			<li><a href="www.somelink.com">Link 3</a></li>
 		</ul>
 	</nav>
-	<aside>
+	<aside class="genericPanelRed">
 		<form action="handle_search.php" method="get">
 			<div class="selection-window">
 				<ul>

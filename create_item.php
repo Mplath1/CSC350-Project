@@ -21,8 +21,9 @@ mysqli_close($dbc);
 <script src="scripts.js"></script>
 </head>
 <body>
-<?php include 'header.php';?>
-	<article>
+	<?php include 'header.php';?>
+	<div style="width:100%; text-align:center;">
+	<article class="genericPanelRed" style="width: auto; margin: 64px auto; text-align:left;">
 		<h1>Create Item</h1>
 		<div>
 			<form action="handle_create_item.php" method="post" enctype="multipart/form-data">
@@ -56,6 +57,7 @@ mysqli_close($dbc);
 			</form>
 		</div>
 	</article>
+	</div>
 </body>
 <footer>
 	<?php include 'footer.php';?>
