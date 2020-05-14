@@ -18,6 +18,7 @@ function create_item($dbc) {
 	$description = $_REQUEST['itemdescription'];
 	$price = $_REQUEST['priceslider'];
 	$system = $_REQUEST['systemselecter'];
+	$genre = $_REQUEST['genreselecter'];
 
 	if ($name === '') {
 		echo "<script type='text/javascript'>alert('Item must have a name!');</script>";
@@ -48,7 +49,7 @@ function create_item($dbc) {
 					$imageName = $system . "_" . $name . "." . $fileActualExtension;
 					move_uploaded_file($fileTempName, 'img/' . $system . '/' . $imageName);
 
-					$query = "INSERT INTO items VALUES(NULL,'" . $name . "','" . $imageName . "','" . $description . "','" . $price . "','" . $system . "','" . "action" . "',NOW());";
+					$query = "INSERT INTO items VALUES(NULL,'" . $name . "','" . $imageName . "','" . $description . "','" . $price . "','" . $system . "','" . $genre . "',NOW());";
 					$result = mysqli_query($dbc,$query);
 					if($result) {
 						echo "<script type='text/javascript'>alert('New item created!');</script>";
