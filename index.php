@@ -64,7 +64,7 @@ mysqli_close($dbc);
 				</ul>
 			</div>
 			<div style="width:100%; text-align:center;">
-				<div style="margin: 0 auto; text-align:left;">
+				<div style="display: inline-block; margin: 0 auto; text-align:left;">
 					<input type="submit" value="Search">
 				</div>
 			</div>
