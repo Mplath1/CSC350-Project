@@ -6,7 +6,7 @@ $result_count = mysqli_num_rows($items);
 include('index.php');
 
 
-function query_items($dbc,$system,$genres,$price){
+function query_items($dbc,$system,$genres,$pricemin,$pricemax){
 
 	//$query = "SELECT * from items WHERE system = '".$system."' AND price<=".$price."";
 	$query = "SELECT * from items WHERE ";
@@ -25,7 +25,7 @@ function query_items($dbc,$system,$genres,$price){
 			}
 		}
 	}
-	$query = $query."price<=".$price." ORDER BY name";
+	$query = $query."price>=".$pricemin." AND price<=".$pricemax." ORDER BY name";
 	$result = mysqli_query($dbc,$query);
 	return $result;
 }
@@ -38,9 +38,10 @@ function get_items(){
 	else {
 		$genres = array();
 	}
-	$price = $_REQUEST['priceslider'];
+	$pricemin = $_REQUEST['priceslidermin'];
+	$pricemax = $_REQUEST['priceslidermax'];
 	$dbc  = connect_to_database();
-	$result = query_items($dbc,$system,$genres,$price);
+	$result = query_items($dbc,$system,$genres,$pricemin,$pricemax);
 	mysqli_close($dbc);
 	return $result;
 }
@@ -53,7 +54,8 @@ function build_search_string(){
 	else {
 		$genres = array();
 	}
-	$price = $_REQUEST['priceslider'];
+	$pricemin = $_REQUEST['priceslidermin'];
+	$pricemax = $_REQUEST['priceslidermax'];
 	$search = "Results for all ";
 	if (isset($_REQUEST['genre'])) {
 		if(sizeof($genres)>0) {
@@ -75,7 +77,7 @@ function build_search_string(){
 	if($system!='any'){
 		$search = $search." for ".$system." ";
 	}
-	$search = $search."under $".$price;
+	$search = $search."between $".$pricemin." and $".$pricemax;
 	//var_dump($search);
 	return $search;
 }

@@ -21,6 +21,7 @@ mysqli_close($dbc);
 <head>
 <title>Index</title>
 <link rel="stylesheet" type="text/css" href="index_style.css">
+<script src="jquery-3.5.1.min.js"></script>
 <script src="scripts.js"></script>
 </head>
 <body>
@@ -55,11 +56,16 @@ mysqli_close($dbc);
 								<?= $genres['genre_name']?></label>
 						</div>
 						<?php endforeach;?>
-							</li>
-					<li><label for="priceslider">Max.Price</label>
-					<input type="range" name="priceslider" id="priceslider" min="0"
-					max="500" value="<?php if (isset($_REQUEST['priceslider'])) { echo $_REQUEST['priceslider']; } else { echo 50; } ?>">
-					<br><p>$<span id="currentprice"></span></p></li>
+					</li>
+					<li><label for="priceslider">Max.Price: $<span id="currentpricemin"></span>-<span id="currentpricemax"></span></label> 
+						<div id="pricesliderdiv">
+							<div id="pricesliderrange"></div>
+							<input class="priceslider" type="range" name="priceslidermin" id="priceslidermin"
+							min="0" max="500" value="<?php if (isset($_REQUEST['priceslidermin'])) { echo $_REQUEST['priceslidermin']; } else { echo 0; } ?>">
+							<input class="priceslider" type="range" name="priceslidermax" id="priceslidermax"
+							min="0" max="500" value="<?php if (isset($_REQUEST['priceslidermax'])) { echo $_REQUEST['priceslidermax']; } else { echo 200; } ?>">
+						</div>
+					</li>
 					<script src="scripts.js"></script>
 				</ul>
 			</div>
