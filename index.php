@@ -60,10 +60,8 @@ mysqli_close($dbc);
 					<li><label for="priceslider">Max.Price: $<span id="currentpricemin"></span>-<span id="currentpricemax"></span></label> 
 						<div id="pricesliderdiv">
 							<div id="pricesliderrange"></div>
-							<input class="priceslider" type="range" name="priceslidermin" id="priceslidermin"
-							min="0" max="500" value="<?php if (isset($_REQUEST['priceslidermin'])) { echo $_REQUEST['priceslidermin']; } else { echo 0; } ?>">
-							<input class="priceslider" type="range" name="priceslidermax" id="priceslidermax"
-							min="0" max="500" value="<?php if (isset($_REQUEST['priceslidermax'])) { echo $_REQUEST['priceslidermax']; } else { echo 200; } ?>">
+							<input type="text" readonly class="priceslider" name="priceslidermin" id="priceslidermin" value="<?php if (isset($_REQUEST['priceslidermin'])) { echo $_REQUEST['priceslidermin']; } else { echo 0; } ?>">
+							<input type="text" readonly class="priceslider" name="priceslidermax" id="priceslidermax" value="<?php if (isset($_REQUEST['priceslidermax'])) { echo $_REQUEST['priceslidermax']; } else { echo 200; } ?>">
 						</div>
 					</li>
 					<script src="scripts.js"></script>
