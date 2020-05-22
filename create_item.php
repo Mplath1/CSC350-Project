@@ -25,7 +25,6 @@ mysqli_close($dbc);
 <head>
 <title>Index</title>
 <link rel="stylesheet" type="text/css" href="index_style.css">
-<script src="scripts.js"></script>
 </head>
 <body>
 	<?php include 'header.php';?>
@@ -57,7 +56,16 @@ mysqli_close($dbc);
 					<li><label for="priceslider">Set Price</label>
 					<input type="range" name="priceslider" id="priceslider" min="0" max="500" value="<?php if (isset($_REQUEST['priceslider'])) { echo $_REQUEST['priceslider']; } else { echo 50; } ?>">
 					<br><p>$<span id="currentprice"></span></p></li>
-					<script src="scripts.js"></script>
+					
+<script>
+	var slider = document.getElementById("priceslider");
+	var currentprice = document.getElementById("currentprice");
+	currentprice.innerHTML = slider.value;
+
+	slider.oninput = function(){
+		currentprice.innerHTML = this.value;
+	}
+</script>
 				</ul>
 				<div style="width:100%; text-align:center;">
 					<div style="display: inline-block; margin: 0 auto; text-align:left;">
