@@ -68,5 +68,5 @@ if(!empty($username)){
 }else{
 	$msg = "You must enter a Username!";
 }
-include ('login.php'); //likely not the best way to do this
+include ('new_user.php'); //likely not the best way to do this
 ?>

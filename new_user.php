@@ -18,8 +18,8 @@ if(!isset($msg)){$msg="";}
 </script>
 <center><a href="index.php"><img id="logo" src="img/Logo_GroupOne.png"/></a></center>
 <div class="genericPanelRed" style="width:256px; position:absolute;top:45%;left:50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
-	<h1 style="text-align: center;">Login!</h1>
-	<form id="test" action="handle_login.php" method="post">
+	<h1 style="text-align: center;">Create Account!</h1>
+	<form id="test" action="handle_new_user.php" method="post">
 		<div style="padding: 6px; display:flex;justify-content:center;font-weight: bold;">
 			<?php echo $msg;?>
 		</div>
@@ -32,10 +32,10 @@ if(!isset($msg)){$msg="";}
 			<input type="password" name="password"><br>
 		</div>
 		<div style="padding: 6px;display: flex;justify-content:space-evenly;margin:16px 0;">
-			<input type="submit" value="Login">
+			<input type="submit" value="Submit">
 		</div>
-		<div style="padding: 6px;display: flex;justify-content:space-evenly;">
-			<button type="button" onclick="location.href=('new_user.php')">New User</button>
+		<div style="padding: 6px; display: flex;justify-content:space-evenly;">
+			<button type="button" onclick="location.href=('login.php')">Login</button>
 		</div>
 	</form>
 </div>
