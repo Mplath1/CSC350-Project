@@ -2,6 +2,7 @@
 if (!isset($_SESSION)) session_start();
 
 if(!isset($msg)){$msg="";}
+if(!isset($user_id)){$user_id="";}
 if(!isset($username)){$username="";}
 if(!isset($prompt)){$prompt="";}
 ?>
