@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 06:50 PM
+-- Generation Time: May 22, 2020 at 06:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -125,19 +125,17 @@ CREATE TABLE `users` (
   `username` varchar(20) NOT NULL,
   `password` varchar(40) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `registration_date` datetime NOT NULL
+  `registration_date` datetime NOT NULL,
+  `reset_prompt` varchar(60) DEFAULT NULL,
+  `reset_answer` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `registration_date`) VALUES
-(1, 'mplath', '9e4a0e085179a3f06b0e5710887d80911ad089fc', 'mikeaplath@gmail.com', '2020-03-15 19:28:59'),
-(4, 'admin', '8cb2237d0679ca88db6464eac60da96345513964', 'none', '2020-04-04 21:21:26'),
-(9, 'stef', 'c8e848fb136f19347ef0e30ebca8454075207918', 'none', '2020-04-07 01:41:38'),
-(10, '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'none', '2020-04-13 23:16:16'),
-(11, 'abc', 'a9993e364706816aba3e25717850c26c9cd0d89d', 'none', '2020-05-11 23:28:36');
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `registration_date`, `reset_prompt`, `reset_answer`) VALUES
+(51, 'mplath', '9e4a0e085179a3f06b0e5710887d80911ad089fc', 'none', '2020-05-22 12:08:08', 'prompt answer is &#34;answer&#34;', '25dc282b5a3dcba62a9a');
 
 --
 -- Indexes for dumped tables
@@ -182,7 +180,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `systems`
@@ -194,7 +192,7 @@ ALTER TABLE `systems`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

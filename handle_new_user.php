@@ -5,6 +5,8 @@ require 'database_connection.php';
 
 $username = filter_var($_REQUEST['username'],FILTER_SANITIZE_STRING);
 $password = filter_var($_REQUEST['password'],FILTER_SANITIZE_STRING);
+$prompt = filter_var($_REQUEST['prompt'],FILTER_SANITIZE_STRING);
+$answer = filter_var($_REQUEST['answer'],FILTER_SANITIZE_STRING);
 
 $msg = "";
 
@@ -24,7 +26,7 @@ $msg = "";
 }*/
 
 
-function select_user($dbc,$username,$password,$msg){
+function select_user($dbc,$username,$password, $prompt, $answer,$msg){
 	$query = "SELECT * from users WHERE username=?";
 	$stmt = mysqli_prepare($dbc, $query);
 	mysqli_stmt_bind_param($stmt, 's', $username);
@@ -32,7 +34,7 @@ function select_user($dbc,$username,$password,$msg){
 		
 	if(mysqli_stmt_affected_rows($stmt) < 1){
 		mysqli_stmt_close($stmt);
-		$msg = create_user($dbc,$username,$password);
+		$msg = create_user($dbc,$username,$password, $prompt, $answer);
 		return $msg;
 	}else{
 		mysqli_stmt_close($stmt);
@@ -41,10 +43,10 @@ function select_user($dbc,$username,$password,$msg){
 	}
 }
 
-function create_user($dbc,$username,$password){
-	$query = "INSERT INTO users VALUES(NULL,?,sha1(?),'none',now())";
+function create_user($dbc,$username,$password, $prompt, $answer){
+	$query = "INSERT INTO users VALUES(NULL,?,sha1(?),'none',now(),?,sha1(?))";
 	$stmt = mysqli_prepare($dbc, $query);
-	mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+	mysqli_stmt_bind_param($stmt, 'ssss', $username, $password, $prompt, $answer);
 	mysqli_stmt_execute($stmt);
 
 	if(mysqli_stmt_affected_rows($stmt)){
@@ -60,13 +62,21 @@ function create_user($dbc,$username,$password){
 
 if(!empty($username)){ 
 	if(!empty($password)){
-		$dbc = connect_to_database();
-		$msg=select_user($dbc,$username,$password,$msg);
+		if(!empty($prompt)){
+			if(!empty($answer)){
+				$dbc = connect_to_database();
+				$msg=select_user($dbc,$username,$password, $prompt, $answer,$msg);
+			}else{
+				$msg = "You must enter a Password Reset Answer!";
+			}
+		}else{
+			$msg = "You must enter a Password Reset Prompt!";
+		}
 	}else{
 		$msg = "You must enter a Password!";
 	}
 }else{
 	$msg = "You must enter a Username!";
 }
-include ('new_user.php'); //likely not the best way to do this
+include ('new_user.php');
 ?>

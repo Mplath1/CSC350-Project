@@ -31,6 +31,17 @@ if(!isset($msg)){$msg="";}
 			<label for="password">Password:</label>
 			<input type="password" name="password"><br>
 		</div>
+		<div style="padding: 6px 0 0; text-align:center;">
+			<p><b>Password Reset Prompt</b></p>
+		</div>
+		<div style="padding: 0 6px 6px; text-align:right;">
+			<label for="prompt">Prompt:</label>
+			<input type="text" name="prompt"><br>
+		</div>
+		<div style="padding: 6px; text-align:right;">
+			<label for="answer">Answer:</label>
+			<input type="text" name="answer"><br>
+		</div>
 		<div style="padding: 6px;display: flex;justify-content:space-evenly;margin:16px 0;">
 			<input type="submit" value="Submit">
 		</div>
