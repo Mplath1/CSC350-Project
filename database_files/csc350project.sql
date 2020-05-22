@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 06:09 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: May 23, 2020 at 12:58 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,8 +58,8 @@ CREATE TABLE `items` (
   `imagelink` varchar(50) NOT NULL,
   `description` tinytext DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
-  `system` enum('any','dc','genesis','saturn','snes') NOT NULL,
-  `genre` enum('action','adventure','fighting','roleplaying','sports') NOT NULL,
+  `system` enum('any','dc','genesis','saturn','snes','n64','ps','ps2','tg16') NOT NULL,
+  `genre` enum('action','adventure','fighting','roleplaying','sports','puzzle','racing') NOT NULL,
   `registration_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -127,7 +127,7 @@ CREATE TABLE `users` (
   `email` varchar(60) NOT NULL,
   `registration_date` datetime NOT NULL,
   `reset_prompt` varchar(60) DEFAULT NULL,
-  `reset_answer` varchar(20) DEFAULT NULL
+  `reset_answer` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -135,7 +135,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `registration_date`, `reset_prompt`, `reset_answer`) VALUES
-(51, 'mplath', '9e4a0e085179a3f06b0e5710887d80911ad089fc', 'none', '2020-05-22 12:08:08', 'prompt answer is &#34;answer&#34;', '25dc282b5a3dcba62a9a');
+(51, 'mplath', '9e4a0e085179a3f06b0e5710887d80911ad089fc', 'none', '2020-05-22 12:08:08', 'prompt answer is &#34;answer&#34;', '25dc282b5a3dcba62a9a'),
+(52, 'Bunny', '2a60ab561d872f5a10a8de7e9fac68d952c52ca2', 'none', '2020-05-22 18:16:33', 'Zodiac Sign', '0f6f6df133ed6ac243cb'),
+(53, 'Plath', 'fff4015e0258bbae60131fb8506459d5175eba12', 'none', '2020-05-22 18:20:51', 'First Dog', '5d36bb314c09dfea47cc'),
+(54, 'admin', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'none', '2020-05-22 18:35:28', 'First 5 digits', '8cb2237d0679ca88db64'),
+(55, 'test', '295b6b7ea32a096943c54178b4411f93e8a864d6', 'none', '2020-05-22 18:45:05', 'first 5 digits', '8cb2237d0679ca88db6464eac60da96345513964');
 
 --
 -- Indexes for dumped tables
@@ -180,7 +184,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `item_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `systems`
@@ -192,7 +196,7 @@ ALTER TABLE `systems`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
