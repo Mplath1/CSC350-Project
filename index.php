@@ -97,7 +97,7 @@ mysqli_close($dbc);
 						<div class="item-info">
 							<?php if (isset($_SESSION['LoggedInUsername'])):?>
 								<form action="handle_delete_item.php" method="get" class="item-delete-button">
-									<input type="submit" name="select" value="X" onclick="return confirm('\tYou are about to permanently delete this item.\t\n\t\tAre you sure you wish to proceed?\t\t')"/>
+									<input type="submit" value="X" onclick="return confirm('\tYou are about to permanently delete this item.\t\n\t\tAre you sure you wish to proceed?\t\t')" />
 									<input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>"/>
 								</form>
 							<?php endif;?>

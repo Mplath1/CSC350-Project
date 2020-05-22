@@ -155,6 +155,7 @@ body {
 	width: calc(var(--item-card-width) - 2*var(--item-info-padding));
 	background-color: transparent;
 	border: 4px solid var(--main-color);
+	position: relative; /* for edit item button */
 }
 
 
@@ -171,7 +172,10 @@ body {
 }
 
 .item-delete-button {
-	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
 	margin: 0;
 	padding: 0;
 }
