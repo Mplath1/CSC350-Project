@@ -64,34 +64,4 @@ $(document).on('mousemove', function(e) { // "e" is intentional
 	}
 });
 
-
-
-function correctSliderValues () {
-	var value1 = parseInt($('#priceslidermin').val(),10);
-	var value2 = parseInt($('#priceslidermax').val(),10);
-	if (value1 <= value2) {
-		$('#priceslidermin').val(value1);
-		$('#priceslidermax').val(value2);
-	} else {
-		$('#priceslidermin').val(value2);
-		$('#priceslidermax').val(value1);
-	}
-}
-
-$(document).on('input', '#priceslidermin', function() {
-	displaySliderValues();
-});
-
-$(document).on('input', '#priceslidermax', function() {
-	displaySliderValues();
-});
-
-$("#priceslidermin").change(function(){
-	correctSliderValues();
-}); 
-
-$("#priceslidermax").change(function(){
-	correctSliderValues();
-}); 
-
 });
